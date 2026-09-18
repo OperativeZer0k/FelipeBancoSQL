@@ -40,7 +40,7 @@ INSERT INTO Prestamo (id_prestamo, monto_otorgado, tasa_interes, fecha_otorgado,
 
 # 7. Operaciones
 INSERT INTO Operacion (id_operacion, fecha, hora, monto, tipo, cuenta_origen, cuenta_destino) VALUES
-(5001, '2024-02-01', '10:30:00', 5000.00, 'Depósito', 'Cuenta-001', NULL),
+(5001, '2024-02-01', '10:30:00', 5000.00, 'Deposito', 'Cuenta-001', NULL),
 (5002, '2024-02-02', '11:15:00', 1200.00, 'Retiro', 'Cuenta-001', NULL),
 (5003, '2024-02-03', '14:20:00', 3000.00, 'Transferencia', 'Cuenta-002', 'Cuenta-003'),
-(5004, '2024-02-04', '16:45:00', 10000.00, 'Depósito', 'Cuenta-004', NULL);
+(5004, '2024-02-04', '16:45:00', 10000.00, 'Deposito', 'Cuenta-004', NULL);

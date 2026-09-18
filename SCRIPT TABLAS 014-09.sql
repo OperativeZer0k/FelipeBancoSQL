@@ -28,7 +28,7 @@ CREATE TABLE Cliente (
 
 CREATE TABLE Cuenta_Bancaria (
     numero_cuenta VARCHAR(20) PRIMARY KEY,
-    tipo VARCHAR(20) NOT NULL,
+    tipo ENUM ("ahorro" , "Cuenta_Corriente") NOT NULL,
     fecha_apertura DATE NOT NULL,
     saldo_actual DECIMAL(12, 2) NOT NULL,
     id_sucursal INT NOT NULL,
@@ -50,6 +50,7 @@ CREATE TABLE Prestamo (
     fecha_otorgado DATE NOT NULL,
     cantidad_cuotas INT NOT NULL,
     documento_cliente VARCHAR(20) NOT NULL,
+    estado ENUM ("Aprobado" , "Rechazado" , "En revision"),
     FOREIGN KEY (documento_cliente) REFERENCES Cliente(documento)
 );
 
@@ -58,9 +59,12 @@ CREATE TABLE Operacion (
     fecha DATE NOT NULL,
     hora TIME NOT NULL,
     monto DECIMAL(12, 2) NOT NULL,
-    tipo VARCHAR(20) NOT NULL,
+    tipo ENUM ("Retiro" , "Deposito" , "Transferencia") NOT NULL,
     cuenta_origen VARCHAR(20) NOT NULL,
     cuenta_destino VARCHAR(20),
     FOREIGN KEY (cuenta_origen) REFERENCES Cuenta_Bancaria(numero_cuenta),
     FOREIGN KEY (cuenta_destino) REFERENCES Cuenta_Bancaria(numero_cuenta)
 );
+
+
+# SET FOREIGN_KEY_CHECKS = 1;
